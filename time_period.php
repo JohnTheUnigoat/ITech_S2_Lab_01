@@ -8,26 +8,26 @@
 </head>
 <body>
 	<?php
-		$genre = $_GET['genre'];
-		echo "<h2>Movies of genre \"$genre\"</h2>";
-
+		$start = $_GET['start'];
+		$end = $_GET['end'];
+		
 		$dbh = new PDO('mysql:host=localhost;dbname=film_library', 'root', '');
 
 		$cmd = <<<EOD
-		SELECT
-			f.name,
-			f.date,
-			f.country,
-			f.director
-		FROM
-			film AS f JOIN film_genre AS fg ON fg.FID_Film = f.ID_FILM
-			JOIN genre AS g ON g.ID_Genre = fg.FID_Genre
-		WHERE
-			g.title = :genre;
+			SELECT
+				name,
+				date,
+				country,
+				director
+			FROM film
+			WHERE date BETWEEN :start AND :end
+			ORDER BY date
 		EOD;
-
+		
 		$stmt = $dbh->prepare($cmd);
-		$stmt->execute([':genre' => $genre]);
+		$stmt->execute([':start' => $start, ':end' => $end]);
+
+		echo "<h2>Movies that came out from $start to $end</h2>";
 
 		include 'movies_table_print.php';
 	?>
