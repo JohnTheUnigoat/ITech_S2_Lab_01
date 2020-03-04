@@ -1,7 +1,8 @@
 <?php
 	$rows = $stmt->fetchAll();
 
-	echo '<table border="1px">';
+	echo '<div class="table-container">';
+	echo '<table>';
 
 	echo '<tr>';
 	echo '<th>Name</th>';
@@ -17,5 +18,7 @@
 		}
 		echo '</tr>';
 	}
+
 	echo '</table>';
+	echo '</div>';
 ?>
