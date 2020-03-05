@@ -6,14 +6,15 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<?php
+	$actor = $_GET['actor'];
+	echo "<title>Movies starring $actor</title>";
+	?>
 </head>
 <body>
 	<main>
 		<?php
-		$actor = $_GET['actor'];
-
-		$dbh = new PDO('mysql:host=localhost;dbname=film_library', 'root', '');
+		include 'db_connection.php';
 
 		$cmd = <<<EOD
 		SELECT
@@ -28,7 +29,7 @@
 			a.name = :actor
 		EOD;
 
-		$stmt = $dbh->prepare($cmd);
+		$stmt = $conn->prepare($cmd);
 		$stmt->execute([':actor' => $actor]);
 
 		echo "<h2>Movies starring $actor</h2>";

@@ -6,14 +6,17 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
+	<?php
+	$start = $_GET['start'];
+	$end = $_GET['end'];
+
+	echo "<title>Movies from $start to $end</title>";
+	?>
 	<title>Document</title>
 </head>
 <body>
 	<main>
 		<?php
-		$start = $_GET['start'];
-		$end = $_GET['end'];
-
 		$dbh = new PDO('mysql:host=localhost;dbname=film_library', 'root', '');
 
 		$cmd = <<<EOD

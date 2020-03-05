@@ -6,15 +6,15 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<?php
+	$genre = $_GET['genre'];
+	echo "<title>Movies of \"$genre\" genre</title>";
+	?>
 </head>
 <body>
 	<main>
 		<?php
-		$genre = $_GET['genre'];
-		echo "<h2>Movies of genre \"$genre\"</h2>";
-
-		$dbh = new PDO('mysql:host=localhost;dbname=film_library', 'root', '');
+		include 'db_connection.php';
 
 		$cmd = <<<EOD
 		SELECT
@@ -29,8 +29,10 @@
 			g.title = :genre;
 		EOD;
 
-		$stmt = $dbh->prepare($cmd);
+		$stmt = $conn->prepare($cmd);
 		$stmt->execute([':genre' => $genre]);
+
+		echo "<h2>Movies of \"$genre\" genre</h2>";
 
 		include 'movies_table_print.php';
 		?>

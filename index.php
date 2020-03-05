@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="style.css">
-	<title>Document</title>
+	<title>Ivan Hudzynskyi ITech labs</title>
 </head>
 <body>
 	<!-- Data from DB -->
