@@ -27,14 +27,13 @@
 		position: absolute;
 		bottom: 0px;
 	}
-
-	td {
-		width: 25%;
-		min-width: 200px;
-	}
 }
 
 @media only screen and (max-width: 900px) {
+	:root {
+		font-size: 1em;
+	}
+
 	main {
 		width: 95%;
 	}
@@ -45,7 +44,6 @@
 
 	.item {
 		position: static;
-		/* width: 100%; */
 		height: 100%;
 		margin: 1em;
 	}
@@ -92,21 +90,23 @@ form {
 
 .table-container {
 	overflow: auto;
+	box-shadow: #111 10px 10px 5px;
+	border: solid 1px #eee;
 }
 
 table {
 	border-collapse: collapse;
 	box-sizing: border-box;
-	width: 99%;
+	width: 100%;
+	min-width: 600px;
 	margin: auto;
 }
 
-th {
+td, th {
 	text-align: left;
-}
-
-td {
 	border: solid 1px #eee;
 	padding: 0.3em;
+	/* width: 100%; */
+	/* min-width: 150px; */
 	box-sizing: border-box;
 }
