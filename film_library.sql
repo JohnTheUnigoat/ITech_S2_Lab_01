@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2020 at 11:22 AM
+-- Generation Time: Mar 06, 2020 at 11:20 PM
 -- Server version: 10.1.39-MariaDB
 -- PHP Version: 7.3.5
 
@@ -38,14 +38,14 @@ CREATE TABLE `actor` (
 --
 
 INSERT INTO `actor` (`ID_Actor`, `name`) VALUES
-(1, 'Sam Worthington'),
-(2, 'Zoe Saldana'),
-(3, 'Sigourney Weaver'),
+(8, 'Bryce Dallas Howard'),
 (4, 'Chris Pratt'),
-(5, 'Vin Diesel'),
-(6, 'Paul Walker'),
 (7, 'Jordana Brewster'),
-(8, 'Bryce Dallas Howard');
+(6, 'Paul Walker'),
+(1, 'Sam Worthington'),
+(3, 'Sigourney Weaver'),
+(5, 'Vin Diesel'),
+(2, 'Zoe Saldana');
 
 -- --------------------------------------------------------
 
@@ -146,10 +146,10 @@ CREATE TABLE `genre` (
 INSERT INTO `genre` (`ID_Genre`, `title`) VALUES
 (1, 'Action'),
 (2, 'Adventure'),
-(3, 'Fantasy'),
 (4, 'Comedy'),
-(5, 'Thriller'),
-(6, 'Sci-Fi');
+(3, 'Fantasy'),
+(6, 'Sci-Fi'),
+(5, 'Thriller');
 
 -- --------------------------------------------------------
 
@@ -179,7 +179,8 @@ INSERT INTO `quality` (`ID_QUALITY`, `resolution`) VALUES
 -- Indexes for table `actor`
 --
 ALTER TABLE `actor`
-  ADD PRIMARY KEY (`ID_Actor`);
+  ADD PRIMARY KEY (`ID_Actor`),
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `film`
@@ -206,7 +207,8 @@ ALTER TABLE `film_genre`
 -- Indexes for table `genre`
 --
 ALTER TABLE `genre`
-  ADD PRIMARY KEY (`ID_Genre`);
+  ADD PRIMARY KEY (`ID_Genre`),
+  ADD UNIQUE KEY `title` (`title`);
 
 --
 -- Indexes for table `quality`

@@ -90,8 +90,8 @@ form {
 
 .table-container {
 	overflow: auto;
-	box-shadow: #111 10px 10px 5px;
-	border: solid 1px #eee;
+	/* box-shadow: #111 10px 10px 5px; */
+	/* border: solid 1px #eee; */
 }
 
 table {
@@ -102,11 +102,16 @@ table {
 	margin: auto;
 }
 
-td, th {
+td {
+	border-bottom: solid 1.5px #eee;
+}
+
+th {
 	text-align: left;
-	border: solid 1px #eee;
-	padding: 0.3em;
-	/* width: 100%; */
-	/* min-width: 150px; */
-	box-sizing: border-box;
+	border-bottom: solid 3px #eee;
+}
+
+td, th {
+	padding: 1em;
+	/* margin: 1em; */
 }
